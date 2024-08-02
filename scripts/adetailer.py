@@ -64,7 +64,7 @@ class ADetailerScript(scripts.Script):
         infotext = Infotext()
         webui_info = get_webui_info()
 
-        default_unit = ADetailerUnit(enabled=False, model="None")
+        default_unit = ADetailerUnit(ad_enabled=False, ad_model="None")
         ui_groups = []
         adetailers = []
 
