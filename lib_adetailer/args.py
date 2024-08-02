@@ -18,6 +18,16 @@ import gradio as gr
 
 from modules.processing import StableDiffusionProcessing
 
+schema = ["ad_enabled",
+          "ad_skip_img2img",
+          "ad_model",
+          "ad_model_classes",
+          "ad_prompt",
+          "ad_negative_prompt",
+          "ad_detection_confidence_threshold",
+          "ad_mask_min_ratio",
+          "ad_mask_max_ratio",]
+
 class ADetailerUnitSchema(BaseModel):
     ad_enabled: bool = False
     ad_skip_img2img: bool = False
@@ -246,9 +256,7 @@ class ADetailerUnit:
 
     @staticmethod
     def from_dict(d: Dict) -> "ADetailerUnit":
-        return ADetailerUnit(
-            **{k: v for k, v in d.items() if k in vars(ADetailerUnit)}
-        )
+        return ADetailerUnit(**{k: v for k, v in d.items() if k in schema})
 
     @staticmethod
     def infotext_fields():
