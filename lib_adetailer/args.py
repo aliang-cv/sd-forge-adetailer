@@ -65,9 +65,9 @@ class ADetailerUnitSchema(BaseModel):
 class ADetailerUnit:
     def __init__(
         self,
-        enabled=False,
+        ad_enabled: bool = False,
         skip_img2img=False,
-        model="None",
+        ad_model: str = "None",
         model_classes="",
         prompt='',
         negative_prompt='',
@@ -107,8 +107,8 @@ class ADetailerUnit:
         controlnet_guidance_end=1,
         controlnet_weight=1
     ):
-        self.ad_model = model
-        self.ad_enabled = enabled
+        self.ad_model = ad_model
+        self.ad_enabled = ad_enabled
         self.ad_model_classes = model_classes
         self.ad_skip_img2img = skip_img2img
         self.ad_prompt = prompt
